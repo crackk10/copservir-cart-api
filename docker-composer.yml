@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: copservir_cart
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Clave123
+      MYSQL_DATABASE: copservir
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Clave123
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
