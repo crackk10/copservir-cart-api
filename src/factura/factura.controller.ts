@@ -1,6 +1,6 @@
 import { Controller,Post, Body } from '@nestjs/common';
 import { FacturaService } from './factura.service';
-import { CreateFacturaDto } from './dto/create-factura.dto';
+import { FacturaRequestDto } from 'src/common/dto/facturaRequestDto';
 
 
 @Controller('factura')
@@ -8,8 +8,8 @@ export class FacturaController {
   constructor(private readonly facturaService: FacturaService) {}
 
   @Post()
-  create(@Body() createFacturaDto: CreateFacturaDto) {  
-    return this.facturaService.create(createFacturaDto);
+  create(@Body() facturaRequestDto: FacturaRequestDto) {  
+    return this.facturaService.create(facturaRequestDto);
   }
 
  

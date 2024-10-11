@@ -5,7 +5,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 export class Detalle_factura {
   @PrimaryGeneratedColumn()
   id:number
-  @ManyToOne(() => Producto, producto => producto.id)
+  @ManyToOne(() => Producto, (producto) => producto.detalle_Factura,{})
   producto: Producto;
   @Column()
   cantidad: number;

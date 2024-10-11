@@ -13,8 +13,12 @@ export class ContabilidadController {
   }
   
 @Get()
-getFacturasByContabilidadId(){
-  return this.contabilidadService.getFacturasByContabilidadId()
+getFacturasHoy(){
+  return this.contabilidadService.getFacturasHoy()
+}
+@Get('/totales')
+getTotalesHoy(){
+  //return this.contabilidadService.getTotalesHoy()
 }
 
 

@@ -9,6 +9,5 @@ export class CreateDetalleFacturaDto {
   iva_facturado:number
   @IsNumber()
   descuento_facturado:number
-  @IsNumber()
-  facturaId: number;
+
 }

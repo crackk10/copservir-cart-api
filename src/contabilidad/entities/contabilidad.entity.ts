@@ -6,8 +6,8 @@ export class Contabilidad {
   id: number;
   @Column({})
   fecha:  Date
-  @OneToMany(()=> Factura, (factura)=> factura.id)//este no puede existir sin un ManyToOne en la otra tabla
-  factura: Factura[]  | null
+  @OneToMany(()=> Factura, factura=> factura.contabilidad)//este no puede existir sin un ManyToOne en la otra tabla
+  facturas: Factura[]  | null
   @Column({default : 0})
   total:number | null
   @Column({default : 0})

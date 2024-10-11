@@ -22,6 +22,6 @@ export class Producto {
   @Column()
   imagen: string;
   // Relacion con detalleFactura
-  @OneToMany(() => Detalle_factura, (detalle) => detalle.id)
+  @OneToMany(() => Detalle_factura, (detalle) => detalle.producto)
   detalle_Factura: Detalle_factura[];
 }

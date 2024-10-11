@@ -17,23 +17,22 @@ export class ProductoService {
     return await this.productoRepository.find()
   }
 
-  async ajusteStock(id: number, cantidad: number): Promise<void> {
+  async ajusteStock(id: number, cantidad: number): Promise<Producto> {
     const producto = await this.productoRepository.findOneBy({ id });
     if (producto) {
       producto.enStock = producto.enStock - cantidad;
       await this.productoRepository.save(producto); 
     }
+    return producto
   }
-  async verStock(id: number, cantidad: number): Promise<boolean> {
+
+  async inStock(id: number, cantidad: number): Promise<void> {
     const producto = await this.productoRepository.findOneBy({ id });
     if (!producto) {
       throw new NotFoundException(`Producto con ID ${id} no encontrado`);
     }
     if (producto.enStock < cantidad) {    // Verificar si hay suficiente stock
-      console.log(`Stock insuficiente para el producto con ID ${id}`);
-      
-      throw new BadRequestException(`Stock insuficiente para el producto con ID ${id}`);
+      throw new BadRequestException(`Hay ${producto.enStock} unidades de ${producto.nombre} y usted solicitó ${cantidad}`);
     }
-    return true
   }
 }

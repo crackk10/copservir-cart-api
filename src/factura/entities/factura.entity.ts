@@ -30,6 +30,6 @@ export class Factura {
   detalle_Factura: Detalle_factura[]
   
   // Relacion con contabilidad
-  @ManyToOne(() => Contabilidad, contabilidad => contabilidad.id,{eager: true })
+  @ManyToOne(() => Contabilidad, contabilidad => contabilidad.facturas)
   contabilidad: Contabilidad;
 }
